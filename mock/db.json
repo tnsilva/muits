@@ -3,8 +3,32 @@
     {
       "id": 1,
       "cityId": 1,
-      "email": "thalisson@datasales.io",
+      "email": "thalisson@gmail.com",
       "fullName": "Thalisson Sousa"
+    },
+    {
+      "id": 2,
+      "cityId": 1,
+      "email": "maria@gmail.com",
+      "fullName": "Maria Sousa"
+    },
+    {
+      "id": 3,
+      "cityId": 1,
+      "email": "carlos@gmail.com",
+      "fullName": "Carlos Sousa"
+    },
+    {
+      "id": 4,
+      "cityId": 1,
+      "email": "pedro@datasales.io",
+      "fullName": "Pedro Sousa"
+    },
+    {
+      "id": 5,
+      "cityId": 1,
+      "email": "alfredo@datasales.io",
+      "fullName": "Alfredo Sousa"
     }
   ]
 }
