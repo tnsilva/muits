@@ -23,12 +23,6 @@
       "cityId": 1,
       "email": "alfredo@datasales.io",
       "fullName": "Alfredo Sousa"
-    },
-    {
-      "id": 7,
-      "cityId": 1,
-      "email": "maria@gmail.com",
-      "fullName": "Maria Sousa"
     }
   ]
 }
