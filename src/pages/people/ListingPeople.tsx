@@ -1,4 +1,6 @@
 import {
+  Icon,
+  IconButton,
   LinearProgress,
   Pagination,
   Paper,
@@ -11,7 +13,7 @@ import {
   TableRow,
 } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { ListingTools } from "../../shared/components";
 import { Environment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
@@ -25,6 +27,7 @@ export const ListingPeople: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce(3000);
   // const { debounce } = useDebounce(3000, false);
+  const navigate = useNavigate();
 
   const [rows, setRows] = useState<IListingPeople[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -56,6 +59,21 @@ export const ListingPeople: React.FC = () => {
     });
   }, [search, page]);
 
+  const handleDelete = (id: number) => {
+    if (window.confirm("Realmente deseja apagar?")) {
+      PeopleService.deleteById(id).then((result) => {
+        if (result instanceof Error) {
+          alert(result.message);
+        } else {
+          setRows((oldRows) => {
+            return [...rows.filter((oldRow) => Number(oldRow.id) !== id)];
+          });
+          alert("Registro apagado com sucesso.");
+        }
+      });
+    }
+  };
+
   return (
     <LayoutBasePage
       title="Listagem de pessoas"
@@ -86,7 +104,20 @@ export const ListingPeople: React.FC = () => {
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.id}>
-                <TableCell>Ações</TableCell>
+                <TableCell>
+                  <IconButton
+                    size="small"
+                    onClick={() => handleDelete(Number(row.id))}
+                  >
+                    <Icon>delete</Icon>
+                  </IconButton>
+                  <IconButton
+                    size="small"
+                    onClick={() => navigate(`people/detail/${row.id}`)}
+                  >
+                    <Icon>edit</Icon>
+                  </IconButton>
+                </TableCell>
                 <TableCell>{row.fullName}</TableCell>
                 <TableCell>{row.email}</TableCell>
               </TableRow>

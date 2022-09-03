@@ -7,12 +7,6 @@
       "fullName": "Thalisson Sousa"
     },
     {
-      "id": 2,
-      "cityId": 1,
-      "email": "maria@gmail.com",
-      "fullName": "Maria Sousa"
-    },
-    {
       "id": 3,
       "cityId": 1,
       "email": "carlos@gmail.com",
@@ -31,64 +25,10 @@
       "fullName": "Alfredo Sousa"
     },
     {
-      "id": 6,
-      "cityId": 1,
-      "email": "thalisson@gmail.com",
-      "fullName": "Thalisson Sousa"
-    },
-    {
       "id": 7,
       "cityId": 1,
       "email": "maria@gmail.com",
       "fullName": "Maria Sousa"
-    },
-    {
-      "id": 8,
-      "cityId": 1,
-      "email": "carlos@gmail.com",
-      "fullName": "Carlos Sousa"
-    },
-    {
-      "id": 9,
-      "cityId": 1,
-      "email": "pedro@datasales.io",
-      "fullName": "Pedro Sousa"
-    },
-    {
-      "id": 10,
-      "cityId": 1,
-      "email": "alfredo@datasales.io",
-      "fullName": "Alfredo Sousa"
-    },
-    {
-      "id": 11,
-      "cityId": 1,
-      "email": "thalisson@gmail.com",
-      "fullName": "Thalisson Sousa"
-    },
-    {
-      "id": 12,
-      "cityId": 1,
-      "email": "maria@gmail.com",
-      "fullName": "Maria Sousa"
-    },
-    {
-      "id": 13,
-      "cityId": 1,
-      "email": "carlos@gmail.com",
-      "fullName": "Carlos Sousa"
-    },
-    {
-      "id": 14,
-      "cityId": 1,
-      "email": "pedro@datasales.io",
-      "fullName": "Pedro Sousa"
-    },
-    {
-      "id": 15,
-      "cityId": 1,
-      "email": "alfredo@datasales.io",
-      "fullName": "Alfredo Sousa"
     }
   ]
 }

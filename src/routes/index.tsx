@@ -32,7 +32,7 @@ export const AppRoutes = () => {
 
       <Route path="/cities" element={<ListingCities />} />
       <Route path="/people" element={<ListingPeople />} />
-      {/* <Route path="/cities/detail/:id" element={< />} /> */}
+      <Route path="/cities/detail/:id" element={<Dashboard />} />
 
       <Route path="*" element={<Navigate to="/home" />} />
     </Routes>
