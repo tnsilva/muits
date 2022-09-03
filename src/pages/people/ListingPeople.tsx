@@ -82,6 +82,7 @@ export const ListingPeople: React.FC = () => {
           showSearchInput
           searchText={search}
           newButtonText="Nova"
+          clickingOnNew={() => navigate("/people/detail/new")}
           changingSearchText={(text) =>
             setSearchParams({ search: text, page: "1" }, { replace: true })
           }
@@ -113,7 +114,7 @@ export const ListingPeople: React.FC = () => {
                   </IconButton>
                   <IconButton
                     size="small"
-                    onClick={() => navigate(`people/detail/${row.id}`)}
+                    onClick={() => navigate(`/people/detail/${row.id}`)}
                   >
                     <Icon>edit</Icon>
                   </IconButton>

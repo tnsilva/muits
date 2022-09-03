@@ -75,6 +75,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           disableElevation
           variant="contained"
           startIcon={<Icon>save</Icon>}
+          onClick={clickingOnSave}
         >
           <Typography
             variant="button"
@@ -98,6 +99,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
             disableElevation
             variant="outlined"
             startIcon={<Icon>save</Icon>}
+            onClick={clickingOnSaveAndClose}
           >
             <Typography
               variant="button"
@@ -120,6 +122,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           disableElevation
           variant="outlined"
           startIcon={<Icon>delete</Icon>}
+          onClick={clickingOnDelete}
         >
           <Typography
             variant="button"
@@ -140,6 +143,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           disableElevation
           variant="outlined"
           startIcon={<Icon>add</Icon>}
+          onClick={clickingOnNew}
         >
           <Typography
             variant="button"
@@ -168,6 +172,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           disableElevation
           variant="outlined"
           startIcon={<Icon>arrow_back</Icon>}
+          onClick={clickingOnBack}
         >
           <Typography
             variant="button"
