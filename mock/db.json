@@ -1,12 +1,6 @@
 {
   "people": [
     {
-      "id": 1,
-      "cityId": 1,
-      "email": "thalisson@gmail.com",
-      "fullName": "Thalisson Sousa"
-    },
-    {
       "id": 3,
       "cityId": 1,
       "email": "carlos@gmail.com",
@@ -23,6 +17,18 @@
       "cityId": 1,
       "email": "alfredo@datasales.io",
       "fullName": "Alfredo Sousa"
+    },
+    {
+      "id": 6,
+      "fullName": "José",
+      "email": "jose@gmail.com",
+      "cityId": "1"
+    },
+    {
+      "id": 7,
+      "fullName": "Lucas",
+      "email": "lucas@gmail.com",
+      "cityId": "1"
     }
   ]
 }
