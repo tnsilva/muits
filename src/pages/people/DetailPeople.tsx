@@ -57,7 +57,7 @@ export const DetailPeople: React.FC = () => {
         }
       });
     } else {
-      formRef.current?.setData({ fullName: "", email: "", cityId: Number("") });
+      formRef.current?.setData({ fullName: "", email: "", cityId: undefined });
     }
   }, [id]);
 

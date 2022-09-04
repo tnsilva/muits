@@ -11,6 +11,18 @@
       "fullName": "Anderson",
       "email": "a@gmail.com",
       "cityId": 3
+    },
+    {
+      "fullName": "Wena",
+      "email": "w@gmail.com",
+      "cityId": 2,
+      "id": 3
+    },
+    {
+      "fullName": "Nalda",
+      "email": "n@gmail.com",
+      "cityId": 1,
+      "id": 4
     }
   ],
   "cities": [

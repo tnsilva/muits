@@ -17,7 +17,9 @@ export const AutoCompleteCity: React.FC<IAutoCompleteCityProps> = ({
 
   const { debounce } = useDebounce();
 
-  const [selectedId, setSelectedId] = useState<number | undefined>(undefined);
+  const [selectedId, setSelectedId] = useState<number | undefined>(
+    defaultValue
+  );
 
   const [options, setOptions] = useState<TAutoCompleteOption[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -80,8 +82,16 @@ export const AutoCompleteCity: React.FC<IAutoCompleteCityProps> = ({
       onChange={(_, newValue) => {
         setSelectedId(newValue?.id);
         setSearch("");
+        clearError();
       }}
-      renderInput={(params) => <TextField {...params} label="Cidade" />}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          error={!!error}
+          helperText={error}
+          label="Cidade"
+        />
+      )}
     />
   );
 };
