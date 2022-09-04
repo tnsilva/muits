@@ -8,9 +8,9 @@
     },
     {
       "id": 4,
-      "cityId": 1,
+      "fullName": "Pedro Sousa",
       "email": "pedro@datasales.io",
-      "fullName": "Pedro Sousa"
+      "cityId": 1
     },
     {
       "id": 5,
@@ -28,6 +28,12 @@
       "id": 7,
       "fullName": "Lucas",
       "email": "lucas@gmail.com",
+      "cityId": "1"
+    },
+    {
+      "id": 8,
+      "fullName": "Rodrigo Sousa ",
+      "email": "r@gmail.com",
       "cityId": "1"
     }
   ]

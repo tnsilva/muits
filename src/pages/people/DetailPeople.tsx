@@ -1,12 +1,17 @@
-import { LinearProgress, TextField } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import {
+  Box,
+  LinearProgress,
+  TextField,
+  Paper,
+  Grid,
+  Typography,
+} from "@mui/material";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DetailTools } from "../../shared/components";
 import { LayoutBasePage } from "../../shared/layouts";
 import { PeopleService } from "../../shared/services/api/people/PeopleService";
-import { Form } from "@unform/web";
-import { FormHandles } from "@unform/core";
-import { VTextField } from "../../shared/forms";
+import { VForm, VTextField, useVForm } from "../../shared/forms";
 
 interface IFormData {
   email: string;
@@ -18,7 +23,14 @@ export const DetailPeople: React.FC = () => {
   const { id = "new" } = useParams<"id">();
   const navigate = useNavigate();
 
-  const formRef = useRef<FormHandles>(null);
+  const {
+    formRef,
+    save,
+    saveAndClose,
+    isSaveAndClose,
+    // saveAndNew,
+    // isSaveAndNew,
+  } = useVForm();
 
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState("");
@@ -37,6 +49,8 @@ export const DetailPeople: React.FC = () => {
           formRef.current?.setData(result);
         }
       });
+    } else {
+      formRef.current?.setData({ fullName: "", email: "", cityId: "" });
     }
   }, [id]);
 
@@ -49,7 +63,11 @@ export const DetailPeople: React.FC = () => {
         if (result instanceof Error) {
           alert(result.message);
         } else {
-          navigate(`/people/detail/${result}`);
+          if (isSaveAndClose()) {
+            navigate("/people");
+          } else {
+            navigate(`/people/detail/${result}`);
+          }
         }
       });
     } else {
@@ -57,6 +75,10 @@ export const DetailPeople: React.FC = () => {
         setIsLoading(false);
         if (result instanceof Error) {
           alert(result.message);
+        } else {
+          if (isSaveAndClose()) {
+            navigate("/people");
+          }
         }
       });
     }
@@ -84,20 +106,67 @@ export const DetailPeople: React.FC = () => {
           showSaveAndCloseButton
           showNewButton={id !== "new"}
           showDeleteButton={id !== "new"}
+          clickingOnSave={save}
+          clickingOnSaveAndClose={saveAndClose}
           clickingOnBack={() => navigate("/people")}
           clickingOnDelete={() => handleDelete(Number(id))}
           clickingOnNew={() => navigate("/people/detail/new")}
-          clickingOnSave={() => formRef.current?.submitForm()}
-          clickingOnSaveAndClose={() => formRef.current?.submitForm()}
         />
       }
     >
-      {/* {isLoading && <LinearProgress variant="indeterminate" />} */}
-      <Form ref={formRef} onSubmit={handleSave}>
-        <VTextField placeholder="Nome completo" name="fullName" />
-        <VTextField placeholder="Email" name="email" />
-        <VTextField placeholder="Cidade" name="cityId" />
-      </Form>
+      <VForm ref={formRef} onSubmit={handleSave}>
+        <Box
+          m={1}
+          display="flex"
+          flexDirection="column"
+          component={Paper}
+          variant="outlined"
+        >
+          <Grid container direction="column" p={2} spacing={2}>
+            {isLoading && (
+              <Grid item>
+                <LinearProgress variant="indeterminate" />
+              </Grid>
+            )}
+            <Grid item>
+              <Typography variant="h6">Geral</Typography>
+            </Grid>
+            <Grid container item direction="row" spacing={2}>
+              <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                <VTextField
+                  fullWidth
+                  name="fullName"
+                  disabled={isLoading}
+                  label="Nome completo"
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </Grid>
+            </Grid>
+
+            <Grid container item direction="row" spacing={2}>
+              <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                <VTextField
+                  fullWidth
+                  name="email"
+                  label="Email"
+                  disabled={isLoading}
+                />
+              </Grid>
+            </Grid>
+
+            <Grid container item direction="row" spacing={2}>
+              <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                <VTextField
+                  fullWidth
+                  name="cityId"
+                  label="Cidade"
+                  disabled={isLoading}
+                />
+              </Grid>
+            </Grid>
+          </Grid>
+        </Box>
+      </VForm>
     </LayoutBasePage>
   );
 };
