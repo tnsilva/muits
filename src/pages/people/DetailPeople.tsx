@@ -1,7 +1,6 @@
 import {
   Box,
   LinearProgress,
-  TextField,
   Paper,
   Grid,
   Typography,
@@ -13,6 +12,7 @@ import { LayoutBasePage } from "../../shared/layouts";
 import { PeopleService } from "../../shared/services/api/people/PeopleService";
 import { VForm, VTextField, useVForm, IVFormsErrors } from "../../shared/forms";
 import * as yup from "yup";
+import { AutoCompleteCity } from "./components/AutoCompleteCity";
 
 interface IFormData {
   email: string;
@@ -57,7 +57,7 @@ export const DetailPeople: React.FC = () => {
         }
       });
     } else {
-      formRef.current?.setData({ fullName: "", email: "", cityId: "" });
+      formRef.current?.setData({ fullName: "", email: "", cityId: Number("") });
     }
   }, [id]);
 
@@ -178,12 +178,7 @@ export const DetailPeople: React.FC = () => {
 
             <Grid container item direction="row" spacing={2}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
-                <VTextField
-                  fullWidth
-                  name="cityId"
-                  label="Cidade"
-                  disabled={isLoading}
-                />
+                <AutoCompleteCity isExternalLoading={isLoading} />
               </Grid>
             </Grid>
           </Grid>

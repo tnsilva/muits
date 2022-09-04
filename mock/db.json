@@ -1,40 +1,16 @@
 {
   "people": [
     {
-      "id": 3,
+      "fullName": "Thalisson",
+      "email": "t@gmail.com",
       "cityId": 1,
-      "email": "carlos@gmail.com",
-      "fullName": "Carlos Sousa"
+      "id": 1
     },
     {
-      "id": 4,
-      "fullName": "Pedro Sousa",
-      "email": "pedro@datasales.io",
-      "cityId": 1
-    },
-    {
-      "id": 5,
-      "cityId": 1,
-      "email": "alfredo@datasales.io",
-      "fullName": "Alfredo Sousa"
-    },
-    {
-      "id": 6,
-      "fullName": "José",
-      "email": "jose@gmail.com",
-      "cityId": "1"
-    },
-    {
-      "id": 7,
-      "fullName": "Lucas",
-      "email": "lucas@gmail.com",
-      "cityId": "1"
-    },
-    {
-      "id": 8,
-      "fullName": "Rodrigo Sousa ",
-      "email": "r@gmail.com",
-      "cityId": "1"
+      "id": 2,
+      "fullName": "Anderson",
+      "email": "a@gmail.com",
+      "cityId": 3
     }
   ],
   "cities": [
@@ -45,6 +21,22 @@
     {
       "name": "Floriano",
       "id": 2
+    },
+    {
+      "name": "Teresina",
+      "id": 3
+    },
+    {
+      "name": "Caxias",
+      "id": 4
+    },
+    {
+      "name": "Timon",
+      "id": 5
+    },
+    {
+      "name": "Buriti Bravo",
+      "id": 6
     }
   ]
 }

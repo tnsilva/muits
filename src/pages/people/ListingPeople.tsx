@@ -19,6 +19,10 @@ import { Environment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
 import { LayoutBasePage } from "../../shared/layouts";
 import {
+  CitiesService,
+  IListingCities,
+} from "../../shared/services/api/cities/CitiesService";
+import {
   IListingPeople,
   PeopleService,
 } from "../../shared/services/api/people/PeopleService";
@@ -29,6 +33,7 @@ export const ListingPeople: React.FC = () => {
   // const { debounce } = useDebounce(3000, false);
   const navigate = useNavigate();
 
+  const [cities, setCities] = useState<IListingCities[]>([]);
   const [rows, setRows] = useState<IListingPeople[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [totalCount, setTotalCount] = useState(0);
@@ -52,11 +57,29 @@ export const ListingPeople: React.FC = () => {
           alert(result.message);
         } else {
           setRows(result.data);
+          // setRows(result.data.map(r => ({})));
           setTotalCount(result.countTotal);
         }
       });
     });
   }, [search, page]);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    debounce(() => {
+      CitiesService.getAll(1, search).then((result) => {
+        setIsLoading(false);
+
+        if (result instanceof Error) {
+          //   alert(result.message);
+        } else {
+          console.log(result);
+          setCities(result.data);
+        }
+      });
+    });
+  }, [search]);
 
   const handleDelete = (id: number) => {
     if (window.confirm("Realmente deseja apagar?")) {
@@ -72,6 +95,13 @@ export const ListingPeople: React.FC = () => {
       });
     }
   };
+
+  // const cityPeople = useMemo(() => {
+  //   if (!cities) return null;
+  //   const cit = options.find((option) => option.id === selectedId);
+  //   if (!selectedId) return null;
+  //   return selected;
+  // }, [selectedId, options]);
 
   return (
     <LayoutBasePage
@@ -99,6 +129,7 @@ export const ListingPeople: React.FC = () => {
               <TableCell width={100}>Ações</TableCell>
               <TableCell>Nome completo</TableCell>
               <TableCell>Email</TableCell>
+              <TableCell>Cidade</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -120,6 +151,7 @@ export const ListingPeople: React.FC = () => {
                 </TableCell>
                 <TableCell>{row.fullName}</TableCell>
                 <TableCell>{row.email}</TableCell>
+                <TableCell>{row.id}</TableCell>
               </TableRow>
             ))}
           </TableBody>
