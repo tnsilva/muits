@@ -36,5 +36,15 @@
       "email": "r@gmail.com",
       "cityId": "1"
     }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "name": "Matões"
+    },
+    {
+      "name": "Floriano",
+      "id": 2
+    }
   ]
 }

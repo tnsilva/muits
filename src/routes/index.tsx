@@ -3,6 +3,7 @@ import { useDrawerContext } from "../shared/contexts";
 import { useEffect } from "react";
 import {
   Dashboard,
+  DetailCities,
   DetailPeople,
   ListingCities,
   ListingPeople,
@@ -35,9 +36,11 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/home" element={<Dashboard />} />
 
-      <Route path="/cities" element={<ListingCities />} />
       <Route path="/people" element={<ListingPeople />} />
       <Route path="/people/detail/:id" element={<DetailPeople />} />
+
+      <Route path="/cities" element={<ListingCities />} />
+      <Route path="/cities/detail/:id" element={<DetailCities />} />
 
       <Route path="*" element={<Navigate to="/home" />} />
     </Routes>

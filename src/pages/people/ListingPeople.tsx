@@ -96,7 +96,7 @@ export const ListingPeople: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Ações</TableCell>
+              <TableCell width={100}>Ações</TableCell>
               <TableCell>Nome completo</TableCell>
               <TableCell>Email</TableCell>
             </TableRow>
