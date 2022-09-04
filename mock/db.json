@@ -50,5 +50,8 @@
       "name": "Buriti Bravo",
       "id": 6
     }
-  ]
+  ],
+  "auth": {
+    "accessToken": "51b2f4c9b8f421d506d6ad2330dfd3d911978714"
+  }
 }
